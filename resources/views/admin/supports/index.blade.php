@@ -12,16 +12,16 @@
     <tbody>
         @foreach($supports as $support)
             <tr>
-                <td>{{ $support->subject }}</td>
-                <td>{{ $support->status }}</td>
-                <td>{{ $support->body }}</td>
+                <td>{{ $support['subject'] }}</td>
+                <td>{{ $support['status'] }}</td>
+                <td>{{ $support['body'] }}</td>
                 <td>
-                    <a href="{{ route('supports.show', $support->id) }}">Ver</a>
-                    <a href="{{ route('supports.edit', $support->id) }}">Editar</a>
+                    <a href="{{ route('supports.show', $support['id']) }}">Ver</a>
+                    <a href="{{ route('supports.edit', $support['id']) }}">Editar</a>
                     <form
-                        action="{{ route('supports.destroy', $support->id) }}"
+                        action="{{ route('supports.destroy', $support['id']) }}"
                         method="POST"
-                        onsubmit="return confirm('Deseja realmente deletar a dúvida {{ $support->id }}')"
+                        onsubmit="return confirm('Deseja realmente deletar a dúvida {{ $support['id'] }}')"
                     >
                         @csrf()
                         @method('DELETE')

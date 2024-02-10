@@ -4,9 +4,16 @@ namespace App\Services;
 
 use App\DTO\CreateSupportDTO;
 use App\DTO\UpdateSupportDTO;
+use App\Repositories\SupportRepositoryInterface;
 
 class SupportService
 {
+    public function __construct(
+        protected SupportRepositoryInterface $repository
+    )
+    {
+
+    }
     public function getAll(string $filter = NULL): array
     {
         return $this->repository->getAll($filter);
