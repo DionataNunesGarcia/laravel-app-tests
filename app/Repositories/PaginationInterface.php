@@ -12,4 +12,5 @@ interface PaginationInterface
     public function getNumberNextPage(): int;
     public function getNumberPreviousPage(): int;
     public function getFilter(): array|null;
+    public function getMeta(): array|null;
 }
