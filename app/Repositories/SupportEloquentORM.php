@@ -55,9 +55,12 @@ class SupportEloquentORM implements SupportRepositoryInterface
      * @param string|NULL $id
      * @return stdClass|null
      */
-    public function findOne(string $id = NULL): stdClass|null
+    public function findOne(string $id = NULL): stdClass|NULL
     {
-        return (object) $this->model->find($id)->toArray() ?? NULL;
+        if (!$support = $this->model->find($id)) {
+            return NULL;
+        }
+        return (object) $support->toArray() ?? NULL;
     }
 
     /**
@@ -88,6 +91,6 @@ class SupportEloquentORM implements SupportRepositoryInterface
             return NULL;
         }
         $support->update((array) $dto);
-        return (object) $dto->toArray();
+        return (object) $support->toArray();
     }
 }
