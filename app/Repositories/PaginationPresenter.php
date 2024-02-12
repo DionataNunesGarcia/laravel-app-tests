@@ -60,21 +60,6 @@ class PaginationPresenter implements PaginationInterface
         return $this->filter;
     }
 
-    public function getMeta(): array|NULL
-    {
-        return [
-            'meta' => [
-                'total' => $this->total(),
-                'is_first_page' => $this->isFirstPage(),
-                'is_last_page' => $this->isLastPage(),
-                'current_page' => $this->currentPage(),
-                'next_page' => $this->getNumberNextPage(),
-                'previous_page' => $this->getNumberPreviousPage(),
-                'filters' => $this->getFilter(),
-            ]
-        ];
-    }
-
     private function resolveItems (array $items): array
     {
         $response = [];
