@@ -8,11 +8,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <section class="container px-4 mx-auto">
+    <section class="container px-4 mx-auto py-4">
         <div class="sm:flex sm:items-center sm:justify-between">
             @yield('header')
         </div>
-        <div class="content">
+        <div>
+            <x-messages/>
             @yield('content')
         </div>
     </section>
